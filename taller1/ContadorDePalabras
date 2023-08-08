@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class ContadorDePalabras {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese una oración o frase: ");
+        String frase = scanner.nextLine();
+        scanner.close();
+
+        int cantidadPalabras = contarPalabras(frase);
+        System.out.println("La cantidad de palabras en la frase es: " + cantidadPalabras);
+    }
+
+    public static int contarPalabras(String frase) {
+        if (frase.isEmpty()) {
+            return 0;
+        }
+
+        // Dividir la frase en palabras utilizando el espacio como delimitador
+        String[] palabras = frase.split(" ");
+        
+        return palabras.length;
+    }
+}

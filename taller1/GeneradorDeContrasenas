@@ -1,0 +1,23 @@
+import java.security.SecureRandom;
+
+public class GeneradorDeContrasenas {
+    public static void main(String[] args) {
+        int longitud = 8;
+        String contrasena = generarContrasena(longitud);
+        System.out.println("Contraseña generada: " + contrasena);
+    }
+
+    public static String generarContrasena(int longitud) {
+        String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder contrasena = new StringBuilder();
+
+        SecureRandom random = new SecureRandom();
+        for (int i = 0; i < longitud; i++) {
+            int index = random.nextInt(caracteres.length());
+            char caracter = caracteres.charAt(index);
+            contrasena.append(caracter);
+        }
+
+        return contrasena.toString();
+    }
+}
